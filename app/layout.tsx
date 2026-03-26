@@ -8,6 +8,11 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+export const metadata = {
+  title: "Ivo Brindes",
+  description: "Brindes personalizados",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

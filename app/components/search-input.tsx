@@ -4,7 +4,11 @@ import { SearchIcon } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export function SearchInput() {
+type Props = {
+  onSearch?: () => void;
+};
+
+export function SearchInput({ onSearch }: Props) {
   const [search, setSearch] = useState("");
   const router = useRouter();
 
@@ -12,6 +16,8 @@ export function SearchInput() {
     if (!search.trim()) return;
 
     router.push(`/search?q=${encodeURIComponent(search)}`);
+
+    onSearch?.();
   };
 
   return (
@@ -26,7 +32,7 @@ export function SearchInput() {
         onKeyDown={(e) => {
           if (e.key === "Enter") handleSearch();
         }}
-        className="w-[28rem] border-none p-3 text-zinc-800 outline-none placeholder:text-zinc-600"
+        className="w-full border-none p-3 text-zinc-800 outline-none placeholder:text-zinc-600 md:w-[28rem]"
       />
     </div>
   );
