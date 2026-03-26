@@ -57,6 +57,17 @@ export function ComoComprar() {
                 falar com um vendedor e finalizar seu pedido.
               </p>
             </li>
+            <li className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+              <div className="text-sm font-semibold text-zinc-800">
+                5. Prazos e tempo de entrega
+              </div>
+              <p className="mt-1 text-sm leading-relaxed text-zinc-600">
+                Prazos de entrega de todos os itens são definidos com base no
+                item escolhido, quantidade e estilo de acabamento, o prazo sera
+                informado após pedir o orçamento em nosso{" "}
+                <strong>WhatsApp</strong>.
+              </p>
+            </li>
           </ol>
 
           <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">

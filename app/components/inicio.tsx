@@ -3,7 +3,6 @@ export function Inicio() {
     <section className="w-full bg-white text-zinc-950">
       <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:py-16 md:px-8 md:py-20 lg:py-24 xl:max-w-[90rem] xl:px-16 2xl:max-w-[110rem] 2xl:px-24">
         <div className="grid items-start gap-10 md:grid-cols-12 lg:gap-16 xl:gap-24">
-          {/* ESQUERDA */}
           <div className="space-y-5 md:col-span-7">
             <p className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-4 py-1 text-[11px] font-semibold tracking-[0.2em] text-amber-700 uppercase">
               <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
@@ -21,7 +20,6 @@ export function Inicio() {
               garantir um resultado com acabamento premium.
             </p>
 
-            {/* BOTÕES */}
             <div className="flex flex-col gap-3 pt-3 sm:flex-row sm:items-center">
               <a
                 href="#produtos"
@@ -38,8 +36,6 @@ export function Inicio() {
                 Baixar catálogo (PDF)
               </a>
             </div>
-
-            {/* CARDS */}
             <div className="grid gap-3 pt-4 sm:grid-cols-2 lg:grid-cols-3">
               <div className="rounded-2xl border border-sky-100 bg-sky-50/80 p-4">
                 <div className="text-sm font-semibold text-sky-800">
@@ -69,8 +65,6 @@ export function Inicio() {
               </div>
             </div>
           </div>
-
-          {/* DIREITA */}
           <div className="space-y-4 rounded-2xl border border-fuchsia-100 bg-gradient-to-b from-white to-fuchsia-50 p-5 sm:p-6 md:col-span-5 md:p-7">
             <div className="text-sm font-semibold tracking-tight text-fuchsia-800">
               No catálogo você encontra:

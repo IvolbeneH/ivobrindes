@@ -6,10 +6,6 @@ import { Suspense, useState } from "react";
 
 const WHATSAPP_NUMBER = "5586995486524";
 
-const SIZES = ["P", "M", "G", "GG"] as const;
-
-type Size = (typeof SIZES)[number];
-
 function ProdutoPageContent() {
   const searchParams = useSearchParams();
   const title = searchParams.get("title") ?? "";
@@ -17,7 +13,6 @@ function ProdutoPageContent() {
   const img0 = searchParams.get("img0") ?? "";
 
   const [quantity, setQuantity] = useState<number>(1);
-  const [size, setSize] = useState<Size | "">("");
   const [personalizado, setPersonalizado] = useState<"sim" | "nao">("sim");
   const [error, setError] = useState<string>("");
 
@@ -28,13 +23,9 @@ function ProdutoPageContent() {
       setError("Não foi possível carregar as informações do produto.");
       return;
     }
-    if (!size) {
-      setError("Selecione um tamanho.");
-      return;
-    }
     const safeQty = Number.isFinite(quantity) && quantity > 0 ? quantity : 1;
 
-    const message = `Olá! Quero orçamento do produto: ${title}. Quantidade: ${safeQty}. Tamanho: ${size}. Personalizado: ${
+    const message = `Olá! Quero orçamento do produto: ${title}. Quantidade: ${safeQty}. Personalizado: ${
       personalizado === "sim" ? "sim" : "não"
     }.`;
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -98,26 +89,6 @@ function ProdutoPageContent() {
                   className="w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none focus:border-amber-400"
                 />
               </div>
-
-              <div className="space-y-2">
-                <label htmlFor="tamanho" className="text-sm text-zinc-600">
-                  Tamanho
-                </label>
-                <select
-                  id="tamanho"
-                  value={size}
-                  onChange={(e) => setSize(e.target.value as Size | "")}
-                  className="w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none focus:border-amber-400"
-                >
-                  <option value="">Selecione...</option>
-                  {SIZES.map((s) => (
-                    <option key={s} value={s}>
-                      {s}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
               <div className="space-y-2">
                 <div className="text-sm text-zinc-600">
                   Produto personalizado?
@@ -149,7 +120,7 @@ function ProdutoPageContent() {
               <button
                 type="button"
                 onClick={openWhatsApp}
-                className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-amber-400 px-6 text-sm font-semibold text-white transition-colors hover:bg-amber-500"
+                className="inline-flex h-12 w-full cursor-pointer items-center justify-center rounded-xl bg-amber-400 px-6 text-sm font-semibold text-white transition-colors hover:bg-amber-500"
               >
                 Fazer orçamento
               </button>

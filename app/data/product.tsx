@@ -18,14 +18,14 @@ export type ProductType = {
 export function Product({ title, description, images = [] }: ProductType) {
   const hasMultipleImages = images.length > 1;
   const href = `/produto?title=${encodeURIComponent(
-    title
+    title,
   )}&description=${encodeURIComponent(
-    description
+    description,
   )}&img0=${encodeURIComponent(images[0] ?? "")}`;
 
   return (
     <Card className="w-full rounded-2xl border border-zinc-400">
-      <CardContent>
+      <CardContent className="flex h-full flex-col">
         <div className="relative aspect-square w-full">
           {hasMultipleImages ? (
             <Carousel className="h-full w-full">
@@ -57,14 +57,14 @@ export function Product({ title, description, images = [] }: ProductType) {
           )}
         </div>
 
-        <div className="space-y-4 px-2 py-3">
+        <div className="flex flex-1 flex-col space-y-4 px-2 py-3">
           <h3 className="text-lg font-semibold">{title}</h3>
 
           <p className="text-sm text-gray-500">{description}</p>
 
           <Link
             href={href}
-            className="inline-flex h-10 items-center justify-center rounded-xl bg-amber-400 px-6 text-sm font-semibold text-white transition-colors hover:bg-amber-500"
+            className="mt-auto inline-flex h-10 items-center justify-center rounded-xl bg-amber-400 px-6 text-sm font-semibold text-white transition-colors hover:bg-amber-500"
           >
             Ver produto
           </Link>
