@@ -27,7 +27,7 @@ export function Header() {
 
   return (
     <header
-      className="flex w-full flex-col shadow-lg backdrop-blur-md"
+      className="flex w-full flex-col bg-yellow-300 shadow-lg backdrop-blur-md"
       id="contato"
     >
       <div className="flex h-20 w-full items-center justify-between px-4 md:px-6">
@@ -35,8 +35,8 @@ export function Header() {
           <Image
             src="/ivobrindes.png"
             alt="Logo"
-            width={110}
-            height={110}
+            width={160}
+            height={160}
             className="transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
@@ -46,16 +46,16 @@ export function Header() {
         </div>
 
         <div className="hidden items-center gap-10 lg:flex">
-          <a href="#produtos" className="hover:text-zinc-700">
+          <a href="#produtos" className="transition hover:text-zinc-700">
             Produtos
           </a>
-          <a href="#comprar" className="hover:text-zinc-700">
+          <a href="#comprar" className="transition hover:text-zinc-700">
             Como comprar
           </a>
-          <a href="#sobrenos" className="hover:text-zinc-700">
+          <a href="#sobrenos" className="transition hover:text-zinc-700">
             Sobre nós
           </a>
-          <a href="#footer" className="hover:text-zinc-700">
+          <a href="#footer" className="transition hover:text-zinc-700">
             Contato
           </a>
         </div>
@@ -80,14 +80,23 @@ export function Header() {
             <Image
               src="/download.svg"
               alt="catalogo"
-              width={32}
-              height={32}
+              width={35}
+              height={35}
               className="transition-transform duration-300 group-hover:scale-110"
             />
             <ArrowUpRight className="absolute -top-1 -right-1 h-4 w-4 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:rotate-12 group-hover:opacity-100" />
           </a>
 
-          <div className="lg:hidden">
+          <div className="flex gap-2 lg:hidden">
+            <SocialIcon
+              href="https://www.instagram.com/ivobrindess?igsh=Z3UyMnVhbHV0cGt4"
+              icon="/instagram.svg"
+            />
+            <SocialIcon
+              href="https://wa.me/5586995486524"
+              icon="/whatsapp.svg"
+            />
+            <SocialIcon href="catalogo.pdf" icon="/download.svg" />
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild>
                 <button className="rounded-xl p-2 hover:bg-zinc-100">
@@ -180,8 +189,8 @@ function SocialIcon({ href, icon }: { href: string; icon: string }) {
       <Image
         src={icon}
         alt="social"
-        width={28}
-        height={28}
+        width={35}
+        height={35}
         className="transition-transform duration-300 group-hover:scale-110"
       />
       <ArrowUpRight className="absolute -top-1 -right-1 h-3 w-3 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:rotate-12 group-hover:opacity-100" />

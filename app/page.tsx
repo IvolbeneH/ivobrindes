@@ -1,4 +1,3 @@
-import { Banner } from "./components/banner";
 import { CampanhaEleitoral } from "./components/campanhas";
 import { ComoComprar } from "./components/como-comprar";
 import { Inicio } from "./components/inicio";
@@ -8,7 +7,6 @@ import { SobreNos } from "./components/sobre-nos";
 export default function Home() {
   return (
     <div>
-      <Banner />
       <Inicio />
       <Products />
       <CampanhaEleitoral />

@@ -116,7 +116,7 @@ export function Footer() {
                 <Clock className="mt-0.5 h-4 w-4 text-zinc-300" />
                 <div className="leading-relaxed">
                   <div className="text-zinc-300">Horário</div>
-                  <div>Seg–Sex, 08:00–18:00</div>
+                  <div>Seg–Sex, 08:00–17:00</div>
                   <div>Sabádo, 08:00–12:00</div>
                 </div>
               </li>
