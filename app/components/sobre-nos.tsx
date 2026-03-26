@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function SobreNos() {
   return (
-    <section className="w-full bg-white text-zinc-950">
+    <section className="w-full bg-white text-zinc-950" id="sobrenos">
       <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:py-16 md:px-8 md:py-20 lg:py-24 xl:max-w-[90rem] xl:px-16 2xl:max-w-[110rem] 2xl:px-24">
         <div className="grid items-center gap-10 md:grid-cols-12 lg:gap-16 xl:gap-24">
           <div className="space-y-5 md:col-span-6">
