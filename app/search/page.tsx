@@ -1,13 +1,15 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { categories } from "../data/products";
 import { Product } from "../data/product";
-export default function SearchPage() {
-  const searchParams = useSearchParams();
-  const query = searchParams.get("q") || "";
 
-  const normalize = (str: string) =>
+function SearchContent() {
+  const searchParams = useSearchParams();
+  const query = searchParams.get("q")?.trim() || "";
+
+  const normalize = (str: string = "") =>
     str
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
@@ -15,11 +17,18 @@ export default function SearchPage() {
 
   const allProducts = categories.flatMap((cat) => cat.products);
 
-  const filtered = allProducts.filter(
-    (product) =>
-      normalize(product.title).includes(normalize(query)) ||
-      normalize(product.description).includes(normalize(query)),
-  );
+  if (!query) {
+    return <p className="p-8">Digite algo para buscar</p>;
+  }
+
+  const q = normalize(query);
+
+  const filtered = allProducts.filter((product) => {
+    const title = normalize(product.title);
+    const desc = normalize(product.description);
+
+    return title.includes(q) || desc.includes(q);
+  });
 
   return (
     <main className="p-8">
@@ -38,5 +47,13 @@ export default function SearchPage() {
         ))}
       </div>
     </main>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<p className="p-8">Carregando...</p>}>
+      <SearchContent />
+    </Suspense>
   );
 }
