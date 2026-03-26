@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Ivo Brindes",
-  description: "Brindes personalizados",
+  title: "Ivo Brindes - Brindes personalizados",
+  description: "Brindes personalizados para empresas, eventos e campanhas.",
 };
 
 export default function RootLayout({
