@@ -32,7 +32,7 @@ export function SearchInput({ onSearch }: Props) {
         onKeyDown={(e) => {
           if (e.key === "Enter") handleSearch();
         }}
-        className="w-full border-none p-3 text-zinc-800 outline-none placeholder:text-zinc-600 md:w-[28rem]"
+        className="w-full border-none p-3 text-sm text-zinc-800 outline-none placeholder:text-zinc-600"
       />
     </div>
   );
